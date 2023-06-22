@@ -1,0 +1,17 @@
+<div id="star_rate<%= book.id %>"></div>
+<script>
+$(document).on('turbolinks:load', function() {
+  let elem = document.querySelector('#star_<%= book.id %>');
+  if (elem == null) return;
+
+  let opt = {
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    score: <%= book.star.present? ? book.star.to_f : 0 %>,
+    readOnly: true,
+  };
+  elem.innerHTML = '<%= escape_javascript(image_tag("star-on.png")) %>';
+  raty(elem, opt);
+});
+</script>
