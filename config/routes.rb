@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update, :index]
 
-  resources :groups, except: [:destroy]
-
+  resources :groups do
+    get "join" => "groups#join"
+  end
 
 end
