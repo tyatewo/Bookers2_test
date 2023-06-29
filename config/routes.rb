@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update, :index]
 
+  resources :groups, except: [:destroy]
+
+
 end
