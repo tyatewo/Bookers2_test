@@ -60,6 +60,33 @@
 
 </table>
 
+<div>
+  <h3>7日分の投稿数</h3>
+</div>
+<table class='table table-bordered'>
+  <% day_range = (0..6) %>　<!--日数のデータ。0は今日。１週間前である６まで指定-->
+  <thead>
+    <tr>
+    <% day_range.reverse_each do |n| %>　<!--reverse_eachというのは与えられた値を逆に処理する式です
+　　　　　　　　　　　　　　　　　　　　　今回は画面右側が今日になるように表を作りたいのでこのように記述-->
+      <% if n == 0 %>   <!--ifでnが０の時、つまり今日の場合のみ画面表示を「今日」にしています(0日前と表示されてしまうため)-->
+        <th>今日</th>
+      <% else %>
+        <th><%= n %>日前</th>
+      <% end %>
+    <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% day_range.reverse_each do |n| %>
+      <td><%= @books.created_day(n).count %></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
 </div>
 
 </div>
