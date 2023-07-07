@@ -10,5 +10,6 @@ class Book < ApplicationRecord
 
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) } # 今日 ｛どこ（作成日：タイムゾーン．今.すべて）｝
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) } # 前日 ｛どこ（作成日：タイムゾーン．昨日.すべて）｝
-
+  scope :created_this_week, -> { where(created_at: Time.current.all_week) } # 今日 ｛どこ（作成日：タイムゾーン．今.すべて）｝
+  scope :created_last_week, -> { where(created_at: Time.current.last_week.all_week) } # 前日 ｛どこ（作成日：タイムゾーン．昨日.すべて）｝
 end

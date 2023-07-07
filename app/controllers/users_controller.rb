@@ -17,7 +17,9 @@ class UsersController < ApplicationController
     @books = @user.books
     #投稿数を日付別に表示する方法
     @today_book = @books.created_today #(created_todayはbookモデルに定義している)
-    @yesterday_book = @books.created_yesterday　#(created_yesterdayはbookモデルに定義している)
+    @yesterday_book = @books.created_yesterday #(created_yesterdayはbookモデルに定義している)
+    @this_week_book = @books.created_this_week #(created_todayはbookモデルに定義している)
+    @last_week_book = @books.created_last_week #(created_yesterdayはbookモデルに定義している)
   end
 
   def edit
