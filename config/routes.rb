@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'relationships/followings'
-  get 'relationships/followers'
   root to: 'homes#top'
   get "/home/about" => "homes#about", as: "about"
   devise_for :users
