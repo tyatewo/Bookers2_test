@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :books, only: [:create, :index, :show, :edit, :destroy, :update] do
-    get 'favorite'
+    resource :favorite, only: [:create, :destroy]
   end
   resources :users do
     resource :relationships, only: [:create, :destroy]
